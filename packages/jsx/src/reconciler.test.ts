@@ -2,13 +2,13 @@ import { describe, it, expect, afterEach, beforeEach } from 'vitest';
 import { Box, Text } from '@termuijs/widgets';
 import { Screen } from '@termuijs/core';
 import type { VNode } from './vnode.js';
-import { reconcile, reRenderComponent, unmountAll } from './reconciler.js';
+import { reconcile, reRenderComponent, unmountAll, _pruneInstancesForWidget } from './reconciler.js';
 import { destroyFiber } from './hooks.js';
 
 // ── Helper: make a functional component VNode ──
 
 function h(type: any, props: Record<string, any> = {}, children: VNode[] = []): VNode {
-    return { type, props, children } as any;
+    return { type, props, children } as any; // cast required: VNode is a discriminated union; test helper creates minimal shape
 }
 
 // ── Test components ──
@@ -36,7 +36,7 @@ function ReturnsTextVNode(): VNode {
 }
 
 function getInstanceMap(): Map<any, any> {
-    return (globalThis as any).__termuijs_instances;
+    return (globalThis as any).__termuijs_instances; // cast required: global singleton set by reconciler at runtime
 }
 
 describe('_instanceMap leak prevention', () => {
@@ -109,6 +109,21 @@ describe('_instanceMap leak prevention', () => {
                 expect(Array.isArray(entry.fiber.hooks)).toBe(true);
             }
         }
+    });
+
+    it('handles null children entries during widget pruning (null-guard regression)', () => {
+        // Regression: _pruneInstancesForWidget must guard against null children
+        // entries with the `child && typeof child === 'object'` check.
+        getInstanceMap()?.clear();
+
+        const parent = new Box();
+        const child = new Box();
+        (child as any)._children = [null, new Text('ok')]; // cast required: Widget._children is protected
+        (parent as any)._children = [child]; // cast required: Widget._children is protected
+
+        // Must not throw despite null in children array
+        expect(() => _pruneInstancesForWidget(parent)).not.toThrow();
+        expect(getInstanceMap().size).toBe(0);
     });
 });
 
