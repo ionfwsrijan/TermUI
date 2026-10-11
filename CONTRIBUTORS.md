@@ -6,7 +6,7 @@ We want to thank all the amazing contributors who have helped make TermUI what i
 | :---: | :--- | :---: |
 | <img src="https://avatars.githubusercontent.com/u/99573351?v=4" width="40" height="40" style="border-radius: 50%;" alt="Karanjot786" /> | [@Karanjot786](https://github.com/Karanjot786) | 347 |
 | <img src="https://avatars.githubusercontent.com/u/179694969?v=4" width="40" height="40" style="border-radius: 50%;" alt="Tomeshwari-02" /> | [@Tomeshwari-02](https://github.com/Tomeshwari-02) | 136 |
-| <img src="https://avatars.githubusercontent.com/u/201338831?v=4" width="40" height="40" style="border-radius: 50%;" alt="ionfwsrijan" /> | [@ionfwsrijan](https://github.com/ionfwsrijan) | 97 |
+| <img src="https://avatars.githubusercontent.com/u/201338831?v=4" width="40" height="40" style="border-radius: 50%;" alt="ionfwsrijan" /> | [@ionfwsrijan](https://github.com/ionfwsrijan) | 98 |
 | <img src="https://avatars.githubusercontent.com/u/220186330?v=4" width="40" height="40" style="border-radius: 50%;" alt="srushti-panara" /> | [@srushti-panara](https://github.com/srushti-panara) | 86 |
 | <img src="https://avatars.githubusercontent.com/u/186480203?v=4" width="40" height="40" style="border-radius: 50%;" alt="Harshithk951" /> | [@Harshithk951](https://github.com/Harshithk951) | 43 |
 | <img src="https://avatars.githubusercontent.com/u/185155652?v=4" width="40" height="40" style="border-radius: 50%;" alt="itssagarK" /> | [@itssagarK](https://github.com/itssagarK) | 40 |
